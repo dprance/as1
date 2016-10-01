@@ -5,5 +5,5 @@ package dprance.as1;
  */
 public class Habit {
     public String Name;
-    private Boolean Completed = False;
+    private Boolean Completed;
 }

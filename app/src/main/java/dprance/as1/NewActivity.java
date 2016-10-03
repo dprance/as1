@@ -1,4 +1,5 @@
-//code used from http://stackoverflow.com/questions/12527524/switching-between-layouts-activities-with-buttons user PhatHV
+//used code from http://stackoverflow.com/questions/8444972/android-multiple-onclicklistener users Lalit Poptani and anddev
+//used code from http://stackoverflow.com/questions/9192109/displaying-a-string-on-the-textview-when-clicking-a-button-in-android user suji
 
 package dprance.as1;
 
@@ -12,8 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
@@ -26,7 +29,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MainActivity extends Activity implements View.OnClickListener{
+public class NewActivity extends Activity implements View.OnClickListener{
 
     private static final String FILENAME = "file.sav";
     private EditText bodyText;
@@ -43,36 +46,39 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list);
+        setContentView(R.layout.newhabit);
+        bodyText = (EditText) findViewById(R.id.editText);
 
-        final ListView listview = (ListView) findViewById(R.id.habitsList);
-
-
-        String[] values = loadFromFile();
-
-        // Define a new Adapter
-        // First parameter - Context
-        // Second parameter - Layout for the row
-        // Third parameter - ID of the TextView to which the data is written
-        // Forth - the Array of data
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
-
-
-
-
-        Button mainButton = (Button) findViewById(R.id.toMain);
+        Button mainButton = (Button) findViewById(R.id.create);
+        Button viewButton = (Button) findViewById(R.id.view);
         mainButton.setOnClickListener(this);
-    }
+        viewButton.setOnClickListener(this);
 
+    }
+    @Override
     public void onClick(View v) {
-        setResult(RESULT_OK);
-        Intent intent = new Intent(this, NewActivity.class);
-        startActivity(intent);
+        if(v.getId() == R.id.create) {
+            setResult(RESULT_OK);
+
+            Toast.makeText(getBaseContext(), "Habit Saved" , Toast.LENGTH_SHORT ).show();
+
+            String text = bodyText.getText().toString();
+            Date theDate = new Date();
+            Habit newHabit = new IncompleteHabit(text);
+
+            ArrayList<Habit> habitList = new ArrayList<Habit>();
+            habitList.add(newHabit);
+
+            saveInFile(text, new Date(System.currentTimeMillis()));
+
+        }
+        else if (v.getId() == R.id.view){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
     // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.*/
+    // See https://g.co/AppIndexing/AndroidStudio for more information.*/
 
     @Override
     protected void onStart() {

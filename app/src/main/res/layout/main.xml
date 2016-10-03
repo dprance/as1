@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dprance.as1.MainActivity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="new habit name"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
+
+    <CheckBox
+        android:text="Tuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tuesday"
+        android:layout_below="@+id/monday"
+        android:layout_alignLeft="@+id/monday"
+        android:layout_alignStart="@+id/monday" />
+
+    <CheckBox
+        android:text="Monday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/monday"
+        android:layout_below="@+id/editText"
+        android:layout_toRightOf="@+id/editText"
+        android:layout_toEndOf="@+id/editText"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
+
+    <CheckBox
+        android:text="Wednesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wednesday"
+        android:layout_below="@+id/tuesday"
+        android:layout_alignLeft="@+id/tuesday"
+        android:layout_alignStart="@+id/tuesday" />
+
+    <CheckBox
+        android:text="Thursday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/thursday"
+        android:layout_below="@+id/wednesday"
+        android:layout_alignLeft="@+id/wednesday"
+        android:layout_alignStart="@+id/wednesday" />
+
+    <CheckBox
+        android:text="Friday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/friday"
+        android:layout_below="@+id/thursday"
+        android:layout_alignLeft="@+id/thursday"
+        android:layout_alignStart="@+id/thursday" />
+
+    <CheckBox
+        android:text="Saturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saturday"
+        android:layout_below="@+id/friday"
+        android:layout_alignLeft="@+id/friday"
+        android:layout_alignStart="@+id/friday" />
+
+    <CheckBox
+        android:text="Sunday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sunday"
+        android:layout_below="@+id/saturday"
+        android:layout_alignLeft="@+id/saturday"
+        android:layout_alignStart="@+id/saturday" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View List"
+        android:id="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/monday"
+        android:layout_toStartOf="@+id/monday" />
+
+    <TextView
+        android:text="Select Days To Repeat Task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_alignBaseline="@+id/monday"
+        android:layout_alignBottom="@+id/monday"
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_toStartOf="@+id/button2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Task"
+        android:id="@+id/create"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
